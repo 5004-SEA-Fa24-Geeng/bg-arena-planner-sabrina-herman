@@ -12,14 +12,14 @@ Place your class diagrams below. Make sure you check the file in the browser on 
 
 Provide a class diagram for the provided code as you read through it.  For the classes you are adding, you will create them as a separate diagram, so for now, you can just point towards the interfaces for the provided code diagram.
 
-![UML Diagram](Provided_Code_UML.jpg)
+![UML Diagram](Provided_Code_UML_initial.jpg)
 
 
 ### Your Plans/Design
 
 Create a class diagram for the classes you plan to create. This is your initial design, and it is okay if it changes. Your starting points are the interfaces. 
 
-
+![UML Diagram](Initial_UML.jpg)
 
 
 
@@ -37,8 +37,27 @@ Write a test (in english) that you can picture for the class diagram you have cr
 
 You should feel free to number your brainstorm. 
 
-1. Test 1..
-2. Test 2..
+1. testAddSingleGameByIndex(): adds a game to the list using a specific index. Check if the game is added to the list.
+2. testAddRangeOfGames(): adds a range of games by index. Checks if range of games are added to the list.
+3. testGetGameNames(): tests that it returns the list of game names in ascending order.
+4. testClear(): tests that it clears the entire games list.
+5. testCount(): tests that it counts the correct number of games in the list.
+6. testSaveGame(): tests that the file is saved and is the correct data. Also tests for when the file is overwritten.
+7. testAddAllGames(): tests if all the games in the filtered list are added to the games list.
+8. testAddGameByName(): Adds a game by name and tests if it is added to the game list.
+9. testRemoveGameByName(): Tests if game is able to be removed by name from the games list.
+10. testRemoveAll(): Tests if all games are removed from the game list.
+11. testRemoveRangeOfGames(): removes a range of games by index. Checks if range of games are removed from the list.
+12. testFilter(): Tests if results are returned in ascending order.
+13. testFilterAsc(): Tests if results are returned in ascending order as specified
+14. testFilterDesc(): Tests if results are returned in descending order as specified.
+13. testFilterPlayers(): Tests for filtering of min and max players, including range of players, using: >,<,>=,<=,==,!=.
+14. testFilterPlaytime(): Tests for filtering of playtime, including range of playtime, using: >,<,>=,<=,==,!=.
+15. testFilterByName(): Tests for filtering by name or if the name is included in the games
+16. testFilterRank(): Tests for filtering of ranks, including range of ranks, using: >,<,>=,<=,==,!=.
+17. testFilterRating(): Tests for filtering of ratings, including range of ratings, using: >,<,>=,<=,==,!=.
+18. testFilterDifficulty(): Tests for filtering of difficulty, including range of ranks, using: >,<,>=,<=,==,!=.
+19. testFilterYear(): Tests for filtering of year, including range of year, using: >,<,>=,<=,==,!=.
 
 
 
