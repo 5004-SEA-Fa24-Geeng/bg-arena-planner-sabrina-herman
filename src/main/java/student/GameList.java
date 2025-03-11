@@ -3,6 +3,7 @@ package student;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,7 +15,7 @@ public class GameList implements IGameList {
      */
     public GameList() {
         //throw new UnsupportedOperationException("Unimplemented constructor 'GameList'");
-        listOfGames = new HashSet<>();
+        listOfGames = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override
@@ -52,6 +53,13 @@ public class GameList implements IGameList {
         //subtract one if single
         List<BoardGame> filteredList = filtered.toList();
 
+        if (str.equalsIgnoreCase(ADD_ALL)) {
+            for(BoardGame game: filteredList) {
+                listOfGames.add(game.getName());
+            }
+            return;
+        }
+
         //check for game name, that superseeds
         for (BoardGame game: filteredList) {
             if (game.getName().equals(str)) {
@@ -59,6 +67,23 @@ public class GameList implements IGameList {
                 return;
             }
         }
+
+        String[] range = str.split("-");
+        if (range.length == 1) {
+            BoardGame toAdd = filteredList.get(Integer.parseInt(range[0]));
+            listOfGames.add(toAdd.getName());
+        } else if (range.length == 2) {
+
+            for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
+                listOfGames.add(filteredList.get(i).getName());
+            }
+        }
+
+
+
+
+
+
 
         //BoardGame toAdd = filteredList.get(Integer.parseInt(str));
         //listOfGames.add(toAdd.getName());

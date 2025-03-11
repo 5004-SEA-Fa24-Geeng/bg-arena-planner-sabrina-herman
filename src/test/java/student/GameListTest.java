@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-
+import java.util.List;
 
 
 class GameListTest {
@@ -47,6 +48,25 @@ class GameListTest {
     }
 
     @Test
+    void testAddAllToGameList() {
+        IGameList list1 = new GameList();
+        IGameList list2 = new GameList();
+        list2.addToList("17 Days", games.stream());
+        list2.addToList("Chess", games.stream());
+        list2.addToList("Go", games.stream());
+        list2.addToList("Go Fish", games.stream());
+        list2.addToList("golang", games.stream());
+        list2.addToList("GoRami", games.stream());
+        list2.addToList("Monopoly", games.stream());
+        list2.addToList("Tucano", games.stream());
+        //List<String> list2 = new ArrayList<>(List.of("Chess", "Tucano", "golang", "GoRami", "Go", "Go Fish", "Monopoly", "17 Days"));
+        list1.addToList("all", games.stream());
+        assertEquals(8, list1.count());
+        assertEquals(list2.getGameNames(), list1.getGameNames());
+        System.out.println(list2.getGameNames());
+    }
+
+    @Test
     void testAddSingleGameToListByName() {
         IGameList list1 = new GameList();
         list1.addToList("Go", games.stream());
@@ -60,13 +80,14 @@ class GameListTest {
         IGameList list1 = new GameList();
         list1.addToList("1", games.stream());
         assertEquals(1, list1.count());
-        //System.out.println(list1.getGameNames());
+        System.out.println(list1.getGameNames());
     }
 
     @Test
     void testAddRangeOfGamesToList() {
         IGameList list1 = new GameList();
         list1.addToList("1-3", games.stream());
+        assertEquals(3, list1.count());
     }
     @Test
     void removeFromList() {
