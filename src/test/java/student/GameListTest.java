@@ -47,6 +47,15 @@ class GameListTest {
     }
 
     @Test
+    void testAddSingleGameToListByName() {
+        IGameList list1 = new GameList();
+        list1.addToList("Go", games.stream());
+        assertEquals(1, list1.count());
+        assertEquals("Go", list1.getGameNames().get(0));
+        //System.out.println(list1.getGameNames());
+    }
+
+    @Test
     void testAddSingleGameToListByIndex() {
         IGameList list1 = new GameList();
         list1.addToList("1", games.stream());

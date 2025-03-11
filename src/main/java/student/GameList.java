@@ -28,14 +28,12 @@ public class GameList implements IGameList {
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
         //throw new UnsupportedOperationException("Unimplemented method 'clear'");
         this.listOfGames.clear();
     }
 
     @Override
     public int count() {
-        // TODO Auto-generated method stub
         //throw new UnsupportedOperationException("Unimplemented method 'count'");
         return listOfGames.size();
     }
@@ -53,8 +51,17 @@ public class GameList implements IGameList {
         //listOfGames HashSet, str op, Stream<BoardGame> filtered
         //subtract one if single
         List<BoardGame> filteredList = filtered.toList();
-        BoardGame toAdd = filteredList.get(Integer.parseInt(str));
-        listOfGames.add(toAdd.getName());
+
+        //check for game name, that superseeds
+        for (BoardGame game: filteredList) {
+            if (game.getName().equals(str)) {
+                listOfGames.add(str);
+                return;
+            }
+        }
+
+        //BoardGame toAdd = filteredList.get(Integer.parseInt(str));
+        //listOfGames.add(toAdd.getName());
     }
 
     @Override
