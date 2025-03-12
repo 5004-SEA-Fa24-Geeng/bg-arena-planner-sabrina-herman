@@ -1,5 +1,7 @@
 package student;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,7 +41,16 @@ public class GameList implements IGameList {
     @Override
     public void saveGame(String filename) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveGame'");
+        //throw new UnsupportedOperationException("Unimplemented method 'saveGame'");
+        try {
+            FileWriter fw = new FileWriter(filename);
+            for (String game : getGameNames()) {
+                fw.write(game + "\n");
+            }
+            fw.close();
+        } catch (Exception e) {
+            System.out.println("Error while saving game");
+        }
     }
 
     @Override
