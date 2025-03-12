@@ -79,12 +79,6 @@ public class GameList implements IGameList {
             }
         }
 
-
-
-
-
-
-
         //BoardGame toAdd = filteredList.get(Integer.parseInt(str));
         //listOfGames.add(toAdd.getName());
     }
@@ -92,7 +86,29 @@ public class GameList implements IGameList {
     @Override
     public void removeFromList(String str) throws IllegalArgumentException {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeFromList'");
+        //throw new UnsupportedOperationException("Unimplemented method 'removeFromList'");
+        if (str.equalsIgnoreCase(ADD_ALL)) {
+            this.clear();
+            return;
+        }
+
+        for (String game: listOfGames) {
+            if (game.equalsIgnoreCase(str)) {
+                listOfGames.remove(game);
+            }
+            return;
+        }
+
+        String[] range = str.split("-");
+        if (range.length == 1) {
+            listOfGames.remove(Integer.parseInt(range[0]));
+        } else if (range.length == 2) {
+
+            for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
+                listOfGames.remove(Integer.parseInt(range[i]));
+            }
+        }
+
     }
 
 

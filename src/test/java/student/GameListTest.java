@@ -91,5 +91,10 @@ class GameListTest {
     }
     @Test
     void removeFromList() {
+        IGameList list1 = new GameList();
+        list1.addToList("Go", games.stream());
+        assertEquals(1, list1.count());
+        list1.removeFromList("Go");
+        assertEquals(0, list1.count());
     }
 }
