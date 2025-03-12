@@ -106,9 +106,16 @@ class GameListTest {
         IGameList list1 = new GameList();
         list1.addToList("Go", games.stream());
         assertEquals(1, list1.count());
-        System.out.println(list1.getGameNames().get(0));
         list1.removeFromList("1");
-        System.out.println(list1.getGameNames());
+        assertEquals(0, list1.count());
+    }
+
+    @Test
+    void removeFromListIndexRange() {
+        IGameList list1 = new GameList();
+        list1.addToList("1-3", games.stream());
+        assertEquals(3, list1.count());
+        list1.removeFromList("1-3");
         assertEquals(0, list1.count());
     }
 }

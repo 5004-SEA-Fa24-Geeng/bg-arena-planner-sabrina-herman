@@ -1,9 +1,6 @@
 package student;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -105,17 +102,19 @@ public class GameList implements IGameList {
         }
 
         List<String> strList = getGameNames();
+        List<String> toRemove = new ArrayList<>();
 
         String[] range = str.split("-");
         if (range.length == 1) {
             int index = Integer.parseInt(range[0]) - 1;
             String strToRemove = strList.get(index);
             listOfGames.remove(strToRemove);
-        } else if (range.length == 2) {
 
-            for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
-                listOfGames.remove(strList.get(Integer.parseInt(range[i]) - 1));
+        } else if (range.length == 2) {
+            for (int i = Integer.parseInt(range[0]) - 1; i < Integer.parseInt(range[1]); i++) {
+                toRemove.add(strList.get(i));
             }
+            listOfGames.removeAll(toRemove);
         }
 
     }
