@@ -87,6 +87,11 @@ public class GameList implements IGameList {
     public void removeFromList(String str) throws IllegalArgumentException {
         // TODO Auto-generated method stub
         //throw new UnsupportedOperationException("Unimplemented method 'removeFromList'");
+
+        if (listOfGames.isEmpty()) {
+            throw new IllegalArgumentException("List is empty");
+        }
+
         if (str.equalsIgnoreCase(ADD_ALL)) {
             this.clear();
             return;
@@ -99,13 +104,15 @@ public class GameList implements IGameList {
             return;
         }
 
+        List<String> strList = getGameNames();
+
         String[] range = str.split("-");
         if (range.length == 1) {
-            listOfGames.remove(Integer.parseInt(range[0]));
+            listOfGames.remove(strList.get(Integer.parseInt(range[0])));
         } else if (range.length == 2) {
 
             for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
-                listOfGames.remove(Integer.parseInt(range[i]));
+                listOfGames.remove(strList.get(Integer.parseInt(range[i])));
             }
         }
 

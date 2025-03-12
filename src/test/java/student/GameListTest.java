@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 
 class GameListTest {
@@ -90,11 +88,19 @@ class GameListTest {
         assertEquals(3, list1.count());
     }
     @Test
-    void removeFromList() {
+    void removeFromListName() {
         IGameList list1 = new GameList();
         list1.addToList("Go", games.stream());
         assertEquals(1, list1.count());
         list1.removeFromList("Go");
+        assertEquals(0, list1.count());
+    }
+    @Test
+    void removeFromListIndex() {
+        IGameList list1 = new GameList();
+        list1.addToList("Go", games.stream());
+        assertEquals(1, list1.count());
+        list1.removeFromList("1");
         assertEquals(0, list1.count());
     }
 }
