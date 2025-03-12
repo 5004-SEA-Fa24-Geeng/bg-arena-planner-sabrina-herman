@@ -103,12 +103,12 @@ class GameListTest {
     }
     @Test
     void removeFromListIndex() {
-//        IGameList list1 = new GameList();
-//        list1.addToList("Go", games.stream());
-//        assertEquals(1, list1.count());
-//        System.out.println(list1.getGameNames().get(0));
-//        list1.removeFromList("1");
-//        System.out.println(list1.getGameNames());
-//        assertEquals(0, list1.count());
+        IGameList list1 = new GameList();
+        list1.addToList("Go", games.stream());
+        assertEquals(1, list1.count());
+        System.out.println(list1.getGameNames().get(0));
+        list1.removeFromList("1");
+        System.out.println(list1.getGameNames());
+        assertEquals(0, list1.count());
     }
 }

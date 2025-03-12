@@ -100,8 +100,8 @@ public class GameList implements IGameList {
         for (String game: listOfGames) {
             if (game.equalsIgnoreCase(str)) {
                 listOfGames.remove(game);
+                return;
             }
-            return;
         }
 
         List<String> strList = getGameNames();
