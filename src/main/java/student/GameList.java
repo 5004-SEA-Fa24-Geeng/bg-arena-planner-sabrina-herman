@@ -108,11 +108,13 @@ public class GameList implements IGameList {
 
         String[] range = str.split("-");
         if (range.length == 1) {
-            listOfGames.remove(strList.get(Integer.parseInt(range[0])));
+            int index = Integer.parseInt(range[0]) - 1;
+            String strToRemove = strList.get(index);
+            listOfGames.remove(strToRemove);
         } else if (range.length == 2) {
 
             for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
-                listOfGames.remove(strList.get(Integer.parseInt(range[i])));
+                listOfGames.remove(strList.get(Integer.parseInt(range[i]) - 1));
             }
         }
 
