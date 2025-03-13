@@ -9,8 +9,13 @@ import java.util.stream.Stream;
 
 public class Planner implements IPlanner {
 
+    /** A Set of Board Games*/
     private Set<BoardGame> games;
 
+    /**
+     * Constructor to Planner
+     * @param games The set of board games.
+     */
     public Planner(Set<BoardGame> games) {
         // TODO Auto-generated method stub
         this.games = games;
