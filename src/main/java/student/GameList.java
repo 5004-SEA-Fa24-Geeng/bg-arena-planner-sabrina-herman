@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GameList implements IGameList {
-    /** A list of board games */
+    /** A list of board games. */
     private Set<String> listOfGames;
 
     /**
