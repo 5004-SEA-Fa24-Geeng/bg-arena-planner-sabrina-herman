@@ -1,7 +1,7 @@
 package student;
 
 public final class Filters {
-    private Filters() {}
+    private Filters() { }
 
     public static boolean filter(BoardGame game, GameData column, Operations op, String value) {
 
@@ -30,7 +30,7 @@ public final class Filters {
     }
 
     public static boolean filterNum(int gameData, Operations op, String value) {
-        int int_value = Integer.parseInt(value);
+        int intValue = Integer.parseInt(value);
         switch (op) {
             case EQUALS:
                 //return gameData.equals(value);

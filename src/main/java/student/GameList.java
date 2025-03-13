@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class GameList implements IGameList {
 
-    Set<String> listOfGames;
+    private Set<String> listOfGames;
     /**
      * Constructor for the GameList.
      */
@@ -62,7 +62,7 @@ public class GameList implements IGameList {
         List<BoardGame> filteredList = filtered.toList();
 
         if (str.equalsIgnoreCase(ADD_ALL)) {
-            for(BoardGame game: filteredList) {
+            for (BoardGame game: filteredList) {
                 listOfGames.add(game.getName());
             }
             return;

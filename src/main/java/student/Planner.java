@@ -3,13 +3,14 @@ package student;
 
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
 public class Planner implements IPlanner {
 
-    Set<BoardGame> games;
+    private Set<BoardGame> games;
+
     public Planner(Set<BoardGame> games) {
         // TODO Auto-generated method stub
         this.games = games;
@@ -57,7 +58,8 @@ public class Planner implements IPlanner {
         System.out.println("operator is: " + value);
         //Filters.filter(board game, game data, operator, String value)
         //Stream<BoardGame> filteredGames
-        List<BoardGame> filteredGameList = filteredGames.filter(game -> Filters.filter(game, column, operator, value)).toList();
+        List<BoardGame> filteredGameList = filteredGames.filter(game -> Filters.filter(game,
+                column, operator, value)).toList();
         return filteredGameList.stream();
     }
 
