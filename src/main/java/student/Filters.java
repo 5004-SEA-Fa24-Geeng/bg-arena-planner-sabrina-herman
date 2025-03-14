@@ -22,6 +22,10 @@ public final class Filters {
                 return filterNum(game.getMinPlayers(), op, value);
             case MAX_PLAYERS:
                 return filterNum(game.getMaxPlayers(), op, value);
+            case MIN_TIME:
+                return filterNum(game.getMinPlayTime(), op, value);
+            case MAX_TIME:
+                return filterNum(game.getMaxPlayTime(), op, value);
             default:
                 return false;
         }
