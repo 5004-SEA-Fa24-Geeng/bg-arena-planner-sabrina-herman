@@ -22,7 +22,7 @@ public class Planner implements IPlanner {
 
     @Override
     public Stream<BoardGame> filter(String filter) {
-        Stream<BoardGame> filteredStream = filterSingle(filter, games.stream());
+        Stream<BoardGame> filteredStream = filterSingle(filter, games.stream()).sorted(Sorting.getSorting(GameData.NAME,true));
         return filteredStream;
 
     }
