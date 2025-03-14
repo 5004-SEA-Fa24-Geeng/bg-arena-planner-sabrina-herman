@@ -63,7 +63,8 @@ public class Planner implements IPlanner {
     @Override
     public Stream<BoardGame> filter(String filter, GameData sortOn) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        //throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        return this.games.stream();
     }
 
     @Override
