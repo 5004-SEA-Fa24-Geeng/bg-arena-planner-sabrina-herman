@@ -17,17 +17,11 @@ public class Planner implements IPlanner {
      * @param games The set of board games.
      */
     public Planner(Set<BoardGame> games) {
-        // TODO Auto-generated method stub
         this.games = games;
     }
 
     @Override
     public Stream<BoardGame> filter(String filter) {
-        // TODO Auto-generated method stub
-        //return Stream<BoardGame>
-        //"name == Go"
-
-        //think of the case where filter only has one filter
         Stream<BoardGame> filteredStream = filterSingle(filter, games.stream());
         return filteredStream;
 
@@ -58,11 +52,9 @@ public class Planner implements IPlanner {
         } catch (IllegalArgumentException e) {
             return filteredGames;
         }
-        System.out.println("operator is: " + operator);
-        System.out.println("operator is: " + column);
-        System.out.println("operator is: " + value);
-        //Filters.filter(board game, game data, operator, String value)
-        //Stream<BoardGame> filteredGames
+        System.out.println("Operator is: " + operator);
+        System.out.println("Game is: " + column);
+        System.out.println(column + " is " + value);
         List<BoardGame> filteredGameList = filteredGames.filter(game -> Filters.filter(game,
                 column, operator, value)).toList();
         return filteredGameList.stream();
@@ -71,7 +63,8 @@ public class Planner implements IPlanner {
     @Override
     public Stream<BoardGame> filter(String filter, GameData sortOn) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        //throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        return this.games.stream();
     }
 
     @Override

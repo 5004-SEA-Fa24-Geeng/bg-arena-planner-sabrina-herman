@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GameList implements IGameList {
+    private static final String DASH = "-";
     /** A list of board games. */
     private Set<String> listOfGames;
 
@@ -76,7 +77,7 @@ public class GameList implements IGameList {
             }
         }
 
-        String[] range = str.split("-");
+        String[] range = str.split(DASH);
         if (range.length == 1) {
             BoardGame toAdd = filteredList.get(Integer.parseInt(range[0]));
             listOfGames.add(toAdd.getName());
@@ -115,7 +116,7 @@ public class GameList implements IGameList {
         List<String> strList = getGameNames();
         List<String> toRemove = new ArrayList<>();
 
-        String[] range = str.split("-");
+        String[] range = str.split(DASH);
         if (range.length == 1) {
             int index = Integer.parseInt(range[0]) - 1;
             String strToRemove = strList.get(index);
