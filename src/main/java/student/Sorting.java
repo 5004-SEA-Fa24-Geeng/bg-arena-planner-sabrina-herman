@@ -10,7 +10,10 @@ public final class Sorting {
     public static Comparator<BoardGame> getSorting(GameData gameData, boolean ascending) {
         switch (gameData) {
             case NAME:
-                return Comparator.comparing(BoardGame::getName);
+                return (o1, o2) -> {
+                    int compare = o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
+                    return ascending ? compare : -compare;
+                };
             default:
                 throw new IllegalArgumentException("Invalid");
         }
