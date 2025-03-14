@@ -22,7 +22,6 @@ public final class Filters {
                 return false;
                 //filter based on max players
             default:
-                //temp
                 return false;
         }
     }
@@ -39,9 +38,8 @@ public final class Filters {
             case EQUALS:
                 return gameData.equals(value);
             case CONTAINS:
-                return gameData.toLowerCase().contains(value.toLowerCase());
+                return gameData.toLowerCase().replaceAll(" ", "").contains(value.toLowerCase().replaceAll(" ", ""));
             default:
-                //temp
                 return false;
         }
     }
