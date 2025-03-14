@@ -43,6 +43,28 @@ public class TestPlanner {
          assertEquals(1, filtered.size());
          assertEquals("Go", filtered.get(0).getName());
     }
+
+    @Test
+    public void testFilterPlayer() {
+        IPlanner planner = new Planner(games);
+        List<BoardGame> filtered = planner.filter("minplayers == 10").toList();
+        assertEquals(1, filtered.size());
+        assertEquals("Tucano", filtered.get(0).getName());
+        List<BoardGame> filtered2 = planner.filter("maxplayers == 7").toList();
+        assertEquals(1, filtered2.size());
+        assertEquals("golang", filtered2.get(0).getName());
+    }
+
+    @Test
+    public void testFilterPlayTime() {
+        IPlanner planner = new Planner(games);
+        List<BoardGame> filtered = planner.filter("minplaytime == 70").toList();
+        assertEquals(1, filtered.size());
+        assertEquals("17 days", filtered.get(0).getName());
+        List<BoardGame> filtered2 = planner.filter("maxplaytime == 20").toList();
+        assertEquals(1, filtered2.size());
+        assertEquals("Chess", filtered2.get(0).getName());
+    }
     
 
 }
