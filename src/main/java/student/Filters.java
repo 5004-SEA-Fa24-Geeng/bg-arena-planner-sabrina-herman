@@ -17,10 +17,9 @@ public final class Filters {
             case NAME:
                 //filter the name
                 return filterString(game.getName(), op, value);
-            case MAX_PLAYERS:
-                //temp
-                return false;
-                //filter based on max players
+            case MIN_PLAYERS:
+                //filter based on min players
+                return filterNum(game.getMinPlayers(), op, value);
             default:
                 return false;
         }
@@ -65,9 +64,18 @@ public final class Filters {
         int intValue = Integer.parseInt(value);
         switch (op) {
             case EQUALS:
-                //return gameData.equals(value);
+                return gameData == intValue;
+            case GREATER_THAN:
+                return gameData > intValue;
+            case LESS_THAN:
+                return gameData < intValue;
+            case GREATER_THAN_EQUALS:
+                return gameData >= intValue;
+            case LESS_THAN_EQUALS:
+                return gameData <= intValue;
+            case NOT_EQUALS:
+                return gameData != intValue;
             default:
-                //temp
                 return false;
         }
     }
