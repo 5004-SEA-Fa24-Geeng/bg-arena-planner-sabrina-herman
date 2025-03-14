@@ -26,6 +26,14 @@ public final class Filters {
                 return filterNum(game.getMinPlayTime(), op, value);
             case MAX_TIME:
                 return filterNum(game.getMaxPlayTime(), op, value);
+            case DIFFICULTY:
+                return filterDouble(game.getDifficulty(), op, value);
+            case RANK:
+                return filterNum(game.getRank(), op, value);
+            case RATING:
+                return filterDouble(game.getRating(), op, value);
+            case YEAR:
+                return filterNum(game.getYearPublished(), op, value);
             default:
                 return false;
         }
@@ -68,6 +76,33 @@ public final class Filters {
      */
     public static boolean filterNum(int gameData, Operations op, String value) {
         int intValue = Integer.parseInt(value);
+        switch (op) {
+            case EQUALS:
+                return gameData == intValue;
+            case GREATER_THAN:
+                return gameData > intValue;
+            case LESS_THAN:
+                return gameData < intValue;
+            case GREATER_THAN_EQUALS:
+                return gameData >= intValue;
+            case LESS_THAN_EQUALS:
+                return gameData <= intValue;
+            case NOT_EQUALS:
+                return gameData != intValue;
+            default:
+                return false;
+        }
+    }
+
+    /**
+     * Filter based on number (double).
+     * @param gameData Name of board game.
+     * @param op operation done.
+     * @param value value to compare with the value of the board game.
+     * @return if the filter done on the game is true or not.
+     */
+    public static boolean filterDouble(double gameData, Operations op, String value) {
+        double intValue = Double.parseDouble(value);
         switch (op) {
             case EQUALS:
                 return gameData == intValue;
