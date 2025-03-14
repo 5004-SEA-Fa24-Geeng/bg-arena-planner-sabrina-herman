@@ -45,10 +45,9 @@ class GameListTest {
 
     @Test
     void count() {
-    }
-
-    @Test
-    void saveGame() {
+        IGameList list1 = new GameList();
+        list1.addToList("all", games.stream());
+        assertEquals(8, list1.count());
     }
 
     @Test
@@ -63,7 +62,6 @@ class GameListTest {
         list2.addToList("GoRami", games.stream());
         list2.addToList("Monopoly", games.stream());
         list2.addToList("Tucano", games.stream());
-        //List<String> list2 = new ArrayList<>(List.of("Chess", "Tucano", "golang", "GoRami", "Go", "Go Fish", "Monopoly", "17 Days"));
         list1.addToList("all", games.stream());
         assertEquals(8, list1.count());
         assertEquals(list2.getGameNames(), list1.getGameNames());
@@ -76,7 +74,6 @@ class GameListTest {
         list1.addToList("Go", games.stream());
         assertEquals(1, list1.count());
         assertEquals("Go", list1.getGameNames().get(0));
-        //System.out.println(list1.getGameNames());
     }
 
     @Test
