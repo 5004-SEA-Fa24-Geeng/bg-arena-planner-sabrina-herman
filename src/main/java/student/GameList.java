@@ -7,6 +7,19 @@ import java.util.stream.Stream;
 public class GameList implements IGameList {
     /** DASH between a range. */
     private static final String DASH = "-";
+
+    /** Int for one item in range. */
+    private static final int ONE_NUM = 1;
+
+    /** Int for two items in range. */
+    private static final int TWO_NUM = 2;
+
+    /** First number index in range. */
+    private static final int FIRST = 0;
+
+    /** Second number index in range. */
+    private static final int SECOND = 1;
+
     /** A list of board games. */
     private Set<String> listOfGames;
 
@@ -97,12 +110,12 @@ public class GameList implements IGameList {
         }
 
         String[] range = str.split(DASH);
-        if (range.length == 1) {
-            BoardGame toAdd = filteredList.get(Integer.parseInt(range[0]));
+        if (range.length == ONE_NUM) {
+            BoardGame toAdd = filteredList.get(Integer.parseInt(range[FIRST]));
             listOfGames.add(toAdd.getName());
-        } else if (range.length == 2) {
+        } else if (range.length == TWO_NUM) {
 
-            for (int i = Integer.parseInt(range[0]); i < Integer.parseInt(range[1]) + 1; i++) {
+            for (int i = Integer.parseInt(range[FIRST]); i < Integer.parseInt(range[SECOND]) + 1; i++) {
                 listOfGames.add(filteredList.get(i).getName());
             }
         }
@@ -135,13 +148,13 @@ public class GameList implements IGameList {
         List<String> toRemove = new ArrayList<>();
 
         String[] range = str.split(DASH);
-        if (range.length == 1) {
-            int index = Integer.parseInt(range[0]) - 1;
+        if (range.length == ONE_NUM) {
+            int index = Integer.parseInt(range[FIRST]) - 1;
             String strToRemove = strList.get(index);
             listOfGames.remove(strToRemove);
 
-        } else if (range.length == 2) {
-            for (int i = Integer.parseInt(range[0]) - 1; i < Integer.parseInt(range[1]); i++) {
+        } else if (range.length == TWO_NUM) {
+            for (int i = Integer.parseInt(range[FIRST]) - 1; i < Integer.parseInt(range[SECOND]); i++) {
                 toRemove.add(strList.get(i));
             }
             listOfGames.removeAll(toRemove);
