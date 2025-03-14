@@ -59,9 +59,6 @@ public class Planner implements IPlanner {
         } catch (IllegalArgumentException e) {
             return filteredGames;
         }
-        System.out.println("Operator is: " + operator);
-        System.out.println("Game is: " + column);
-        System.out.println(column + " is " + value);
         List<BoardGame> filteredGameList = filteredGames.filter(game -> Filters.filter(game,
                 column, operator, value)).toList();
         return filteredGameList.stream();
