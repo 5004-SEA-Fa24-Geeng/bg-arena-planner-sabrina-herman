@@ -2,7 +2,7 @@ package student;
 
 public final class Filters {
     /**
-     * Constructor for Filters()
+     * Constructor for Filters().
      */
     private Filters() { }
 
