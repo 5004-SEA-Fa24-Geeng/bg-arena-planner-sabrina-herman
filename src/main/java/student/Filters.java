@@ -20,6 +20,8 @@ public final class Filters {
             case MIN_PLAYERS:
                 //filter based on min players
                 return filterNum(game.getMinPlayers(), op, value);
+            case MAX_PLAYERS:
+                return filterNum(game.getMaxPlayers(), op, value);
             default:
                 return false;
         }
