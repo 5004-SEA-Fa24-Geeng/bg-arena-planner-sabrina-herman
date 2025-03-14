@@ -40,7 +40,7 @@ public final class Filters {
             case CONTAINS:
                 return gameData.toLowerCase().replaceAll(" ", "").contains(value.toLowerCase().replaceAll(" ", ""));
             case GREATER_THAN:
-                return gameData.replaceAll(" ", "").compareTo(value) > 0;
+                return gameData.toLowerCase().replaceAll(" ", "").compareTo(value) > 0;
             default:
                 return false;
         }
