@@ -39,7 +39,7 @@ public final class Filters {
             case EQUALS:
                 return gameData.equals(value);
             case CONTAINS:
-                return gameData.contains(value);
+                return gameData.toLowerCase().contains(value.toLowerCase());
             default:
                 //temp
                 return false;
