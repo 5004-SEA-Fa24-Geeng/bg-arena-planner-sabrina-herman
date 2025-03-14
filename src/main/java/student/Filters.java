@@ -15,24 +15,31 @@ public final class Filters {
 
         switch (column) {
             case NAME:
-                //filter the name
+                //filter the name.
                 return filterString(game.getName(), op, value);
             case MIN_PLAYERS:
-                //filter based on min players
+                //filter based on min players.
                 return filterNum(game.getMinPlayers(), op, value);
             case MAX_PLAYERS:
+                //filter based on max players.
                 return filterNum(game.getMaxPlayers(), op, value);
             case MIN_TIME:
+                //filter based on min time.
                 return filterNum(game.getMinPlayTime(), op, value);
             case MAX_TIME:
+                //filter based on max time.
                 return filterNum(game.getMaxPlayTime(), op, value);
             case DIFFICULTY:
+                //filter based on difficulty.
                 return filterDouble(game.getDifficulty(), op, value);
             case RANK:
+                //filter based on rank.
                 return filterNum(game.getRank(), op, value);
             case RATING:
+                //filter based on rating.
                 return filterDouble(game.getRating(), op, value);
             case YEAR:
+                //filter based on year.
                 return filterNum(game.getYearPublished(), op, value);
             default:
                 return false;

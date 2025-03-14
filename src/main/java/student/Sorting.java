@@ -20,8 +20,6 @@ public final class Sorting {
                     int compare = o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
                     return ascending ? compare : -compare;
                 };
-            case ID:
-
             default:
                 throw new IllegalArgumentException("Invalid");
         }
