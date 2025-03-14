@@ -77,8 +77,10 @@ public class Planner implements IPlanner {
      */
     @Override
     public Stream<BoardGame> filter(String filter, GameData sortOn) {
-        throw new UnsupportedOperationException("Unimplemented method 'filter'");
-        //return this.games.stream();
+        //throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        Stream<BoardGame> filteredStream = filterSingle(filter, games.stream()).sorted(
+                Sorting.getSorting(sortOn, true));
+        return filteredStream;
     }
 
     /**
