@@ -2,7 +2,6 @@ package student;
 
 import java.io.FileWriter;
 import java.util.*;
-//import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GameList implements IGameList {
@@ -15,35 +14,52 @@ public class GameList implements IGameList {
      * Constructor for the GameList.
      */
     public GameList() {
-        //throw new UnsupportedOperationException("Unimplemented constructor 'GameList'");
         listOfGames = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
     }
 
+    /**
+     * Gets the contents of a list, as list of names (Strings) in ascending order
+     * ignoring case.
+     *
+     * @return the list of game names in ascending order ignoring case.
+     */
     @Override
     public List<String> getGameNames() {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'getGameNames'");
-        //return listOfGames.stream().collect(Collectors.toList());
         List<String> listVersionOfGames = List.copyOf(listOfGames);
         return listVersionOfGames;
     }
 
+    /**
+     * Removes all games in the list (clears it out completely).
+     */
     @Override
     public void clear() {
-        //throw new UnsupportedOperationException("Unimplemented method 'clear'");
         this.listOfGames.clear();
     }
 
+    /**
+     * Counts/returns the number of games in the list.
+     *
+     * @return the number of games in the list.
+     */
     @Override
     public int count() {
-        //throw new UnsupportedOperationException("Unimplemented method 'count'");
         return listOfGames.size();
     }
 
+    /**
+     * Saves the list of games to a file.
+     *
+     * The contents of the file will be each game name on a new line. It will
+     * overwrite the file if
+     * it already exists.
+     *
+     * Saves them in the same order as getGameNames.
+     *
+     * @param filename The name of the file to save the list to.
+     */
     @Override
     public void saveGame(String filename) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'saveGame'");
         try {
             FileWriter fw = new FileWriter(filename);
             for (String game : getGameNames()) {
@@ -55,12 +71,14 @@ public class GameList implements IGameList {
         }
     }
 
+    /**
+     * Adds a game or games to the list.
+     * @param str      the string to parse and add games to the list.
+     * @param filtered the filtered list to use as a basis for adding.
+     * @throws IllegalArgumentException if the string is not valid.
+     */
     @Override
     public void addToList(String str, Stream<BoardGame> filtered) throws IllegalArgumentException {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'addToList'");
-        //listOfGames HashSet, str op, Stream<BoardGame> filtered
-        //subtract one if single
         List<BoardGame> filteredList = filtered.toList();
 
         if (str.equalsIgnoreCase(ADD_ALL)) {
@@ -88,16 +106,15 @@ public class GameList implements IGameList {
                 listOfGames.add(filteredList.get(i).getName());
             }
         }
-
-        //BoardGame toAdd = filteredList.get(Integer.parseInt(str));
-        //listOfGames.add(toAdd.getName());
     }
 
+    /**
+     * Removes a game or games from the list.
+     * @param str The string to parse and remove games from the list.
+     * @throws IllegalArgumentException If the string is not valid.
+     */
     @Override
     public void removeFromList(String str) throws IllegalArgumentException {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'removeFromList'");
-
         if (listOfGames.isEmpty()) {
             throw new IllegalArgumentException("List is empty");
         }

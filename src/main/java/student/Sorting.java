@@ -7,6 +7,12 @@ public final class Sorting {
     private Sorting() {
     }
 
+    /**
+     * Sorts the games according to the column.
+     * @param gameData column name
+     * @param ascending in ascending or descending order.
+     * @return A comparator to sort the board games
+     */
     public static Comparator<BoardGame> getSorting(GameData gameData, boolean ascending) {
         switch (gameData) {
             case NAME:

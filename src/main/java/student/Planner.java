@@ -3,7 +3,6 @@ package student;
 
 import java.util.List;
 import java.util.Set;
-//import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -20,12 +19,20 @@ public class Planner implements IPlanner {
         this.games = games;
     }
 
+    /**
+     * Assumes the results are sorted in ascending order, and that the steam is sorted by the name
+     * of the board game (GameData.NAME).
+     * @param filter The filter to apply to the board games.
+     * @return A stream of board games that match the filter.
+     */
     @Override
     public Stream<BoardGame> filter(String filter) {
-        Stream<BoardGame> filteredStream = filterSingle(filter, games.stream()).sorted(Sorting.getSorting(GameData.NAME,true));
+        Stream<BoardGame> filteredStream = filterSingle(filter, games.stream()).sorted(
+                Sorting.getSorting(GameData.NAME, true));
         return filteredStream;
 
     }
+
 
     private Stream<BoardGame> filterSingle(String filter, Stream<BoardGame> filteredGames) {
         // handle getting operation, game attribute to filter on
@@ -60,22 +67,38 @@ public class Planner implements IPlanner {
         return filteredGameList.stream();
     }
 
+    /**
+     * Filters the board games by the passed in text filter. Assumes the results are sorted in
+     * ascending order.
+     *
+     * @param filter The filter to apply to the board games.
+     * @param sortOn The column to sort the results on.
+     * @return A stream of board games that match the filter.
+     */
     @Override
     public Stream<BoardGame> filter(String filter, GameData sortOn) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'filter'");
-        return this.games.stream();
+        throw new UnsupportedOperationException("Unimplemented method 'filter'");
+        //return this.games.stream();
     }
 
+    /**
+     * Filters the board games by the passed in text filter.
+     *
+     * @param filter The filter to apply to the board games.
+     * @param sortOn The column to sort the results on.
+     * @param ascending Whether to sort the results in ascending order or descending order.
+     * @return A stream of board games that match the filter.
+     */
     @Override
     public Stream<BoardGame> filter(String filter, GameData sortOn, boolean ascending) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'filter'");
     }
 
+    /**
+     * Resets the collection to have no filters applied.
+     */
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'reset'");
     }
 
