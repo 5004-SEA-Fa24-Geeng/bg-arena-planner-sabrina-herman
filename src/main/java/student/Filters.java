@@ -36,7 +36,7 @@ public final class Filters {
     public static boolean filterString(String gameData, Operations op, String value) {
         switch (op) {
             case EQUALS:
-                return gameData.equals(value);
+                return gameData.replaceAll(" ", "").equals(value);
             case CONTAINS:
                 return gameData.toLowerCase().replaceAll(" ", "").contains(value.toLowerCase().replaceAll(" ", ""));
             default:
