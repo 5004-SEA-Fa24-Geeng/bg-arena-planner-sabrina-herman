@@ -71,7 +71,7 @@ For the final design, you just need to do a single diagram that includes both th
 > [!WARNING]
 > If you resubmit your assignment for manual grading, this is a section that often needs updating. You should double check with every resubmit to make sure it is up to date.
 
-
+![UML Diagram](Final_Code_UML.jpg)
 
 
 
@@ -81,3 +81,5 @@ For the final design, you just need to do a single diagram that includes both th
 > The value of reflective writing has been highly researched and documented within computer science, from learning to information to showing higher salaries in the workplace. For this next part, we encourage you to take time, and truly focus on your retrospective.
 
 Take time to reflect on how your design has changed. Write in *prose* (i.e. do not bullet point your answers - it matters in how our brain processes the information). Make sure to include what were some major changes, and why you made them. What did you learn from this process? What would you do differently next time? What was the most challenging part of this process? For most students, it will be a paragraph or two. 
+
+My design has mainly changed with the addition of a Sorting class and Filters class. The Sorting class made it so that I can easily sort my list either by ascending or descending according to the column that is inputted. The Filters class also makes it easier to filter through the game data. The main thing I would do differently next time is manage my time better. The last couple of weeks had been hard due to outside of school personal reasons, and I struggled to get the assignment fully done due to this. In the future, I am going to try to work on this earlier and meet with instructors more often. The main thing I learned from this assignment is using Comparators to sort sets of data. This was also the most challenging part, as I struggled to take what we had learned in lab and apply it here. I was able to eventually, but it took me some time. 
