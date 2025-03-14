@@ -48,7 +48,7 @@ public final class Filters {
             case LESS_THAN_EQUALS:
                 return gameData.toLowerCase().replaceAll(" ", "").compareTo(value.toLowerCase()) <= 0;
             case NOT_EQUALS:
-                return !gameData.toLowerCase().replaceAll(" ", "").equals(value);
+                return !gameData.replaceAll(" ", "").equals(value);
             default:
                 return false;
         }
