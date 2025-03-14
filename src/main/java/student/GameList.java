@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GameList implements IGameList {
+    /** DASH between a range */
     private static final String DASH = "-";
     /** A list of board games. */
     private Set<String> listOfGames;

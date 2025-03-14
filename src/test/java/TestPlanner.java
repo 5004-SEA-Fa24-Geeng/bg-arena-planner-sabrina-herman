@@ -39,6 +39,9 @@ public class TestPlanner {
         List<BoardGame> filtered = planner.filter("name == Go").toList();
         assertEquals(1, filtered.size());
         assertEquals("Go", filtered.get(0).getName());
+         List<BoardGame> filtered2 = planner.filter("name ~= Go").toList();
+         assertEquals(1, filtered.size());
+         assertEquals("Go", filtered.get(0).getName());
     }
     
 

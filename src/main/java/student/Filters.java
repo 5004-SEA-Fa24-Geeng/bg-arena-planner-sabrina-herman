@@ -38,6 +38,8 @@ public final class Filters {
         switch (op) {
             case EQUALS:
                 return gameData.equals(value);
+            case CONTAINS:
+                return gameData.contains(value);
             default:
                 //temp
                 return false;
