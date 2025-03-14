@@ -20,6 +20,9 @@ public class GameList implements IGameList {
     /** Second number index in range. */
     private static final int SECOND = 1;
 
+    /** Index shift. */
+    private static final int INDEX_SHIFT = 1;
+
     /** A list of board games. */
     private Set<String> listOfGames;
 
@@ -115,7 +118,8 @@ public class GameList implements IGameList {
             listOfGames.add(toAdd.getName());
         } else if (range.length == TWO_NUM) {
 
-            for (int i = Integer.parseInt(range[FIRST]); i < Integer.parseInt(range[SECOND]) + 1; i++) {
+            for (int i = Integer.parseInt(range[FIRST]); i < Integer.parseInt(range[SECOND])
+                    + INDEX_SHIFT; i++) {
                 listOfGames.add(filteredList.get(i).getName());
             }
         }
@@ -149,12 +153,12 @@ public class GameList implements IGameList {
 
         String[] range = str.split(DASH);
         if (range.length == ONE_NUM) {
-            int index = Integer.parseInt(range[FIRST]) - 1;
+            int index = Integer.parseInt(range[FIRST]) - INDEX_SHIFT;
             String strToRemove = strList.get(index);
             listOfGames.remove(strToRemove);
 
         } else if (range.length == TWO_NUM) {
-            for (int i = Integer.parseInt(range[FIRST]) - 1; i < Integer.parseInt(range[SECOND]); i++) {
+            for (int i = Integer.parseInt(range[FIRST]) - INDEX_SHIFT; i < Integer.parseInt(range[SECOND]); i++) {
                 toRemove.add(strList.get(i));
             }
             listOfGames.removeAll(toRemove);
